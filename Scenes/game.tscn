@@ -1,0 +1,282 @@
+[gd_scene load_steps=19 format=4 uid="uid://dwinvh00jnpoi"]
+
+[ext_resource type="PackedScene" uid="uid://b6iopcu0bwj8p" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="TileSet" uid="uid://cba6mf8lplenr" path="res://tileset.tres" id="1_wowpa"]
+[ext_resource type="PackedScene" uid="uid://bkyikopiv0yi6" path="res://Scenes/platform.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://7ffqmahf0tww" path="res://Scenes/coin.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://cptbssyy6r271" path="res://Scenes/killzone.tscn" id="6_i6g32"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1l0tm"]
+
+[sub_resource type="Animation" id="Animation_3dryh"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(36, -46), Vector2(151, -46), Vector2(37, -46)]
+}
+
+[sub_resource type="Animation" id="Animation_wrm1d"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(36, -68), Vector2(138, -68)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
+_data = {
+&"RESET": SubResource("Animation_3dryh"),
+&"move": SubResource("Animation_wrm1d")
+}
+
+[sub_resource type="Animation" id="Animation_i6g32"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, -74)]
+}
+
+[sub_resource type="Animation" id="Animation_wowpa"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(155, -74), Vector2(9, -74), Vector2(162, -74)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1l0tm"]
+_data = {
+&"RESET": SubResource("Animation_i6g32"),
+&"new_animation": SubResource("Animation_wowpa")
+}
+
+[sub_resource type="Animation" id="Animation_v158k"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(786, 8), Vector2(786, 84), Vector2(786, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_1l0tm"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(514, 14), Vector2(514, 14), Vector2(514, 105)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4fw4"]
+_data = {
+&"RESET": SubResource("Animation_v158k"),
+&"move": SubResource("Animation_1l0tm")
+}
+
+[sub_resource type="Animation" id="Animation_h4fw4"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.99),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(475, 38), Vector2(556, 38), Vector2(466, 38)]
+}
+
+[sub_resource type="Animation" id="Animation_ldgsr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(475, 38)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o5yvi"]
+_data = {
+&"RESET": SubResource("Animation_ldgsr"),
+&"move": SubResource("Animation_h4fw4")
+}
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-2, -1)
+tile_set = ExtResource("1_wowpa")
+format = 2
+layer_0/tile_data = PackedInt32Array(53, 3, 0, 54, 3, 0, 65589, 65539, 0, 65590, 3, 1, 131126, 3, 1, 196662, 3, 1, 262198, 3, 1, 327734, 3, 1, 327733, 3, 1, 262197, 3, 1, 196661, 3, 1, 131125, 3, 1, 131127, 3, 1, 131128, 3, 1, 131129, 3, 1, 131130, 3, 1, 131131, 3, 1, 131132, 3, 1, 131133, 3, 1, 131134, 3, 1, 131135, 3, 1, 131136, 3, 1, 65600, 3, 1, 65601, 3, 1, 131137, 3, 1, 196673, 3, 1, 262209, 3, 1, 327745, 3, 1, 327744, 3, 1, 327743, 3, 1, 327742, 3, 1, 327741, 3, 1, 327740, 3, 1, 327739, 3, 1, 327738, 3, 1, 327737, 3, 1, 327736, 3, 1, 327735, 3, 1, 262200, 3, 1, 262201, 3, 1, 196664, 3, 1, 196663, 3, 1, 196665, 3, 1, 196666, 3, 1, 262203, 3, 1, 262204, 3, 1, 262205, 3, 1, 262206, 3, 1, 262207, 3, 1, 262208, 3, 1, 196671, 3, 1, 196670, 3, 1, 196669, 3, 1, 196668, 3, 1, 196667, 3, 1, 262202, 3, 1, 262199, 3, 1, 196672, 3, 1, 64, 3, 0, 65, 3, 0, -196550, 131075, 4, -131014, 131075, 5, -65478, 131075, 6, -196549, 196611, 4, -131013, 196611, 5, -65477, 196611, 6, -196548, 262147, 4, -131012, 262147, 5, -65476, 262147, 6, 59, 196611, 7, 65595, 196611, 8, -65468, 196611, 1, -131004, 131075, 0, -196540, 65539, 6, -65467, 131075, 1, -131003, 131075, 1, -131002, 131075, 1, -196538, 131075, 1, -262075, 131075, 0, -262074, 131075, 0, -196539, 196611, 1, -262073, 589827, 1, -262072, 655363, 1, -262071, 655363, 1, -262070, 655363, 1, -262069, 720899, 1, -262068, 131075, 0, -262067, 131075, 0, -196532, 131075, 1, -196531, 131075, 1, -130995, 196611, 0, -393150, 262147, 1, -393151, 327683, 1, -393152, 262147, 1, -458689, 327683, 0, -458688, 262147, 1, -458690, 262147, 1, -524225, 327683, 1, -524226, 262147, 1, -524227, 262147, 1, -524228, 262147, 1, -589764, 262147, 0, -589763, 262147, 0, -589762, 262147, 0, -589761, 262147, 0, -458687, 262147, 0, -458686, 262147, 0, -524224, 262147, 0, -786370, 327683, 3, -720834, 327683, 4, -655298, 327683, 5, -524222, 262147, 8, -589768, 393219, 0, -589769, 393219, 0, -589770, 393219, 0, -589771, 393219, 0, -589772, 393219, 0, -589773, 393219, 0, -851921, 393219, 0, -851922, 393219, 0, -786384, 458755, 0, -786386, 393219, 1, -720850, 393219, 1, -655314, 393219, 1, -655313, 393219, 1, -720849, 393219, 1, -786385, 393219, 1, -655312, 393219, 1, -720848, 393219, 1, -589777, 393219, 1, -589778, 393219, 1, -524242, 393219, 1, -458705, 393219, 1, -458704, 393219, 1, -458703, 393219, 1, -458702, 393219, 1, -458701, 393219, 1, -458700, 393219, 1, -458699, 393219, 1, -458698, 393219, 1, -458697, 393219, 1, -458696, 393219, 1, -524232, 393219, 1, -524233, 393219, 1, -524234, 393219, 1, -524235, 393219, 1, -524236, 393219, 1, -524237, 393219, 1, -524238, 393219, 1, -524239, 393219, 1, -524240, 393219, 1, -524241, 393219, 1, -458706, 393219, 1, -589776, 393219, 1, -589775, 393219, 1, -655311, 393219, 1, -589774, 393219, 1, -524257, 327683, 3, -458721, 327683, 4, -393185, 327683, 5, -983043, 393219, 6, -1048563, 393219, 6, -655336, 458755, 7, 40, 524291, 7, 25, 3, 7)
+
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+position = Vector2(-2, 0)
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("1_wowpa")
+use_kinematic_bodies = true
+
+[node name="Player" parent="." instance=ExtResource("1_ebmjs")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -22)
+zoom = Vector2(1.995, 2.31)
+limit_bottom = 150
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="killzone" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(272, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_1l0tm")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(175, -4)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(384, 4)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(639, 6)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(669, 6)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(344, -172)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(178, -284)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(-23, -266)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(907, 22)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(991, 22)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(1230, -75)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(1117, -76)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(973, -157)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(750, -220)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("5_wowpa")]
+position = Vector2(867.00006, -157)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="platform2" parent="Platforms" instance=ExtResource("3_wrm1d")]
+position = Vector2(36, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platform2"]
+libraries = {
+&"": SubResource("AnimationLibrary_wowpa")
+}
+autoplay = "RESET"
+
+[node name="platform3" parent="Platforms" instance=ExtResource("3_wrm1d")]
+position = Vector2(155, -74)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platform3"]
+libraries = {
+&"": SubResource("AnimationLibrary_1l0tm")
+}
+autoplay = "new_animation"
+
+[node name="platform4" parent="Platforms" instance=ExtResource("3_wrm1d")]
+position = Vector2(786, 8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platform4"]
+root_node = NodePath("../../platform4")
+libraries = {
+&"": SubResource("AnimationLibrary_h4fw4")
+}
+autoplay = "RESET"
+
+[node name="platform" parent="Platforms" instance=ExtResource("3_wrm1d")]
+position = Vector2(475, 38)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platform"]
+libraries = {
+&"": SubResource("AnimationLibrary_o5yvi")
+}
+autoplay = "move"
+
+[node name="platform5" parent="Platforms" instance=ExtResource("3_wrm1d")]
+position = Vector2(575, -54)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAFAAEAAwAAAAEAAAAEAAEAAwAAAAEAAAAEAAAAAwAAAAAAAAAFAAAAAwAAAAAAAAADAAAAAwAAAAAAAAACAAAAAwAAAAAAAAABAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAD//wAAAwAAAAAAAAD+/wAAAwAAAAAAAAD9/wAAAwAAAAAAAAD9/wEAAwABAAEAAAD+/wEAAwABAAEAAAD//wEAAwAAAAEAAAAAAAEAAwAAAAEAAAABAAEAAwAAAAEAAAADAAEAAwABAAAAAAACAAEAAwABAAAAAAAJAAAAAwAEAAAAAAAKAAAAAwAEAAAAAAALAAAAAwAEAAAAAAAMAAAAAwAEAAAAAAAJAAEAAwAEAAEAAAAMAAEAAwAEAAEAAAAKAAEAAwAEAAEAAAALAAEAAwAFAAEAAAANAAAAAwAJAAAAAAAOAAAAAwAKAAEAAAAPAAAAAwALAAIAAAAQAAAAAwAGAAAAAAARAAAAAwAGAAAAAAARAAEAAwAIAAAAAAAQAAEAAwAGAAEAAAD9//v/AwACAAQAAAD9//z/AwACAAUAAAD9//3/AwACAAYAAAD+//v/AwADAAQAAAD+//z/AwADAAUAAAD+//3/AwADAAYAAAD+//7/AwADAAcAAAD+////AwADAAgAAAD///v/AwAEAAQAAAD///z/AwAEAAUAAAD///3/AwAEAAYAAAAKAPv/AwACAAQAAAAKAPz/AwACAAUAAAAKAP3/AwACAAYAAAALAPv/AwADAAQAAAALAPz/AwADAAUAAAALAP3/AwADAAYAAAALAP7/AwADAAcAAAALAP//AwADAAgAAAAMAPv/AwAEAAQAAAAMAPz/AwAEAAUAAAAMAP3/AwAEAAYAAAATAPH/AwACAAQAAAATAPL/AwACAAUAAAATAPP/AwACAAYAAAAUAPH/AwADAAQAAAAUAPL/AwADAAUAAAAUAPP/AwADAAYAAAAUAPT/AwADAAcAAAAUAPX/AwADAAgAAAAVAPH/AwAEAAQAAAAVAPL/AwAEAAUAAAAVAPP/AwAEAAYAAAA=")
+tile_set = ExtResource("1_wowpa")
